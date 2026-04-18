@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment files (use .env.example as template)
+.env
+*.env.local
+
+# Test reports
+reports/
+allure-results/
+allure-report/
+test-results/
+
+# Playwright
+playwright-report/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*

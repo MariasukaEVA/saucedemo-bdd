@@ -1,0 +1,41 @@
+# Cursor Rules — SauceDemo BDD
+
+## Language & Framework
+- TypeScript (strict: false), Playwright, Cucumber BDD
+- Use `import` not `require` in .ts files
+- All async functions return `Promise<void>` or typed promises
+
+## Locators
+- ONLY `[data-test="..."]` selectors
+- Never XPath, never CSS classes, never text selectors
+- SauceDemo slugifies item names: "Sauce Labs Backpack" → `sauce-labs-backpack`
+
+## Page Objects
+- Extend `BasePage` from `src/pages/base.page.ts`
+- Locators as getters returning strings: `get myEl() { return '[data-test="my-el"]'; }`
+- Methods are async, use `this.click()`, `this.fill()`, `this.getText()` from BasePage
+
+## Step Definitions
+- Always type `this: PlaywrightWorld` as first parameter
+- Import `PlaywrightWorld` from `../../fixtures/world`
+- Use `getUser(role, env)` for credentials — never hardcode
+- No `page.waitForTimeout()` — use Playwright auto-waiting
+
+## Cucumber World
+- `this.page` — Playwright Page
+- `this.config` — EnvConfig (baseUrl, env, locale, viewport, headless, slowMo)
+- `this.browser`, `this.context` — managed by hooks, don't recreate
+
+## Tags
+- `@smoke` for critical path scenarios
+- `@regression` for full coverage
+- Feature files get both: `@smoke @regression` at feature level
+
+## File Naming
+- Pages: `src/pages/<name>.page.ts`
+- Steps: `src/steps/<domain>/<name>.steps.ts`
+- Features: `src/features/<domain>/<name>.feature`
+
+## Imports
+- Use relative paths (not path aliases) in step/page files
+- Path aliases (@pages, @steps, @config, @utils) are for tsconfig only

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx cucumber-js:*)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js --tags @smoke 2>&1)",
+      "Bash(npx playwright:*)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | tail -20)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | grep \"Scenario\\\\|FAILED\\\\|×\" | head -20)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | grep -A 10 \"Failures:\" | head -60)",
+      "Bash(ENV=uat npx ts-node -e \"\nconst { chromium } = require\\('playwright'\\);\n\\(async \\(\\) => {\n  const browser = await chromium.launch\\({ headless: true }\\);\n  const page = await browser.newPage\\(\\);\n  await page.goto\\('https://www.saucedemo.com'\\);\n  await page.fill\\('[data-test=\\\\\"username\\\\\"]', 'standard_user'\\);\n  await page.fill\\('[data-test=\\\\\"password\\\\\"]', 'secret_sauce'\\);\n  await page.click\\('[data-test=\\\\\"login-button\\\\\"]'\\);\n  await page.click\\('[data-test=\\\\\"add-to-cart-sauce-labs-backpack\\\\\"]'\\);\n  await page.click\\('[data-test=\\\\\"shopping-cart-link\\\\\"]'\\);\n  const html = await page.content\\(\\);\n  const matches = html.match\\(/data-test=\\\\\"[^\\\\\"]+\\\\\"/g\\) || [];\n  const unique = [...new Set\\(matches\\)];\n  console.log\\(unique.join\\('\\\\n'\\)\\);\n  await browser.close\\(\\);\n}\\)\\(\\);\" 2>&1)",
+      "Bash(node:*)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | tail -8)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js --tags @smoke --dry-run 2>&1 | tail -5)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js --tags @smoke --dry-run 2>&1)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | tail -5)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | grep \"Scenario\\\\|×\\\\|Error:\" | head -20)",
+      "Bash(ENV=uat npx cucumber-js --config cucumber.config.js 2>&1 | grep -A 15 \"Failures:\")"
+    ]
+  }
+}

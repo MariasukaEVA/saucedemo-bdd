@@ -1,0 +1,33 @@
+{
+  "login": {
+    "title": "Swag Labs",
+    "usernameLabel": "Nom d'utilisateur",
+    "passwordLabel": "Mot de passe",
+    "loginButton": "Connexion",
+    "errorLocked": "Epic sadface: Sorry, this user has been locked out.",
+    "errorInvalid": "Epic sadface: Username and password do not match any user in this service"
+  },
+  "inventory": {
+    "title": "Produits",
+    "addToCart": "Ajouter au panier",
+    "removeFromCart": "Retirer"
+  },
+  "cart": {
+    "title": "Votre Panier",
+    "checkout": "Commander",
+    "continueShopping": "Continuer les achats",
+    "remove": "Retirer"
+  },
+  "checkout": {
+    "stepOneTitle": "Commande: Vos informations",
+    "stepTwoTitle": "Commande: Récapitulatif",
+    "completeTitle": "Commande: Terminée!",
+    "thankYou": "Merci pour votre commande!",
+    "continue": "Continuer",
+    "finish": "Terminer",
+    "cancel": "Annuler",
+    "errorFirstName": "Error: First Name is required",
+    "errorLastName": "Error: Last Name is required",
+    "errorPostalCode": "Error: Postal Code is required"
+  }
+}
